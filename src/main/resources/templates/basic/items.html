@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div>
+    <h1>상품 목록</h1>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>상품명</th>
+        <th>가격</th>
+        <th>수량</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="item:${items}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:text="${item.quantity}"></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
