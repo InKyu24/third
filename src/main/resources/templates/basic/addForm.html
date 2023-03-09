@@ -8,7 +8,7 @@
 <div>
     <h1>상품 등록</h1>
 </div>
-<form method="post" action="/add">
+<form method="post" th:action="@{/add}">
     <div>
         <label for="name">상품명</label>
         <input type="text" id="name" name="name" placeholder="상품명을 입력해주세요" />
@@ -24,6 +24,7 @@
     <div>
         <button type="submit">등록</button>
         <button type="reset">취소</button>
+        <button type="button" th:onclick="|location.href='@{/items}'|">목록으로 돌아가기</button>
     </div>
 </form>
 </body>

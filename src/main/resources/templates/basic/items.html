@@ -19,12 +19,13 @@
     </thead>
     <tbody>
       <tr th:each="item:${items}">
-        <td th:text="${item.id}"></td>
-        <td th:text="${item.name}"></td>
-        <td th:text="${item.price}"></td>
-        <td th:text="${item.quantity}"></td>
+        <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.id}"></a></td>
+        <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.name}"></a></td>
+        <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.price}"></a></td>
+        <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.quantity}"></a></td>
       </tr>
     </tbody>
   </table>
+  <h3 th:text="${param.message}"></h3>
 </body>
 </html>

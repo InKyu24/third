@@ -30,11 +30,11 @@ public class MemoryItemRepository implements ItemRepository {
 
   @Override
   public void update(Long id, Item item) {
-    Item findItem = findById(id).get();
-    System.out.println("findItem = " + findItem);
-    findItem.setName(item.getName());
-    findItem.setQuantity(item.getQuantity());
-    findItem.setPrice(item.getPrice());
+    findById(id).ifPresent(findItem -> {
+      item.setName(findItem.getName());
+      item.setPrice(findItem.getPrice());
+      item.setQuantity(findItem.getQuantity());
+    });
     itemMap.put(id, item);
   }
 }

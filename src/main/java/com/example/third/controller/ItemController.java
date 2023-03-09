@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -55,8 +56,10 @@ public class ItemController {
   }
 
   @PostMapping("/edit")
-  public String EditItem(ItemDto itemDto) {
+  public String EditItem(ItemDto itemDto, RedirectAttributes redirectAttributes) {
     itemService.updateItem(itemDto.getId(), itemDto);
+//    redirectAttributes.addAttribute("message", "상품 수정 완료!");
+    redirectAttributes.addFlashAttribute("message", "상품 수정 완료!");
     return "redirect:/items";
   }
 }

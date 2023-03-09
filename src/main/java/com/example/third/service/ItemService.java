@@ -25,11 +25,7 @@ public class ItemService {
   }
 
   public void updateItem(Long id, ItemDto itemDto) {
-    itemRepository.findById(id).ifPresent(item -> {
-      item.setName(itemDto.getName());
-      item.setPrice(itemDto.getPrice());
-      item.setQuantity(itemDto.getQuantity());
-    });
+    itemRepository.update(id, new Item(itemDto.getName(), itemDto.getPrice(), itemDto.getQuantity()));
   }
 
   public List<Item> allItems() {
