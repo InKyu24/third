@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>회원가입</h3>
+<form action="/join" method="post" th:object="${member}">
+    <div>
+        <label for="loginId">login ID</label>
+        <input type="text" id="loginId" th:field="*{loginId}" placeholder="아이디를 입력해주세요" />
+    </div>
+    <div>
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" th:field="*{password}" placeholder="암호를 입력해주세요" />
+    </div>
+    <div>
+        <label for="name">이름</label>
+        <input type="text" id="name" th:field="*{name}" placeholder="이름을 입력해주세요" />
+    </div>
+    <div>
+        <button type="submit">등록</button>
+        <button type="reset">초기화</button>
+        <button type="button" th:onclick="|location.href='@{/}'|">돌아가기</button>
+    </div>
+</form>
+</body>
+</html>

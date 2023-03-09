@@ -23,6 +23,11 @@ public class MemoryMemberRepository implements MemberRepository {
   }
 
   @Override
+  public Optional<Member> findByLoginId(String loginId) {
+    return Optional.empty();
+  }
+
+  @Override
   public List<Member> findAll() {
     return new ArrayList<>(memberMap.values());
   }

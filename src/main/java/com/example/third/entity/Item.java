@@ -4,10 +4,16 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.*;
+
 @Getter
 @Setter
 @ToString
+@Entity
+@Table
 public class Item {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String name;
   private Integer price;
@@ -20,4 +26,5 @@ public class Item {
     this.price = price;
     this.quantity = quantity;
   }
+  public Item() {}
 }

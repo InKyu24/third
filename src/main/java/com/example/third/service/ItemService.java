@@ -4,10 +4,12 @@ import com.example.third.entity.Item;
 import com.example.third.entity.ItemDto;
 import com.example.third.repository.ItemRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class ItemService {
   private final ItemRepository itemRepository;
 
