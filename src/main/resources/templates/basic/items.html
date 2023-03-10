@@ -15,6 +15,7 @@
         <th>상품명</th>
         <th>가격</th>
         <th>수량</th>
+        <th>비고</th>
       </tr>
     </thead>
     <tbody>
@@ -23,9 +24,10 @@
         <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.name}"></a></td>
         <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.price}"></a></td>
         <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.quantity}"></a></td>
+        <td><button th:onclick="|location.href='@{/delete/{id}(id=${item.id})}'|">삭제</button> </td>
       </tr>
     </tbody>
   </table>
-  <h3 th:text="${param.message}"></h3>
+  <h3 th:text="${message}"></h3>
 </body>
 </html>

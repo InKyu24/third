@@ -12,10 +12,8 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
   private final EntityManager em;
-  private final DataSource dataSource;
 
-  public SpringConfig(DataSource dataSource, EntityManager em) {
-    this.dataSource = dataSource;
+  public SpringConfig(EntityManager em) {
     this.em = em;
   }
 

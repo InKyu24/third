@@ -2,20 +2,17 @@ package com.example.third.service;
 
 import com.example.third.entity.Member;
 import com.example.third.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-@Transactional(readOnly = true)  // readonly true 로 놓으면 업데이트가 안되기 때문에 update가 필요한 곳에서는 별도로
-public class MemberService {   // @Transactional 로 줘야 함
+@Transactional(readOnly = true)
+@RequiredArgsConstructor
+public class MemberService {
   private final MemberRepository memberRepository;
-
-  @Autowired
-  public MemberService(MemberRepository memberRepository) {
-    this.memberRepository = memberRepository;
-  }
 
   @Transactional
   public Long join(Member member) throws IllegalStateException { // memberController에서 예외 처리해줘야 함

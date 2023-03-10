@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -20,10 +21,12 @@ public class MemberController {
   }
 
   @GetMapping("/join")
-  public String join(Model model) {
-    model.addAttribute("member", new Member());
-    return "member/join";
+  public ModelAndView join() {
+    ModelAndView modelAndView = new ModelAndView("member/join");
+    modelAndView.addObject("member", new Member());
+    return modelAndView;
   }
+
 
   @PostMapping("/join")
   public String join(Member member, RedirectAttributes redirectAttributes) {
@@ -46,6 +49,5 @@ public class MemberController {
       redirectAttributes.addFlashAttribute("message", "로그인 실패");
       return "redirect:/";
     }
-
   }
 }

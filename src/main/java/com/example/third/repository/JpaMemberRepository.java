@@ -1,18 +1,15 @@
 package com.example.third.repository;
 
 import com.example.third.entity.Member;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import java.util.*;
 
+@RequiredArgsConstructor
 public class JpaMemberRepository implements MemberRepository {
   private final EntityManager em;
-
-  @Autowired
-  public JpaMemberRepository(EntityManager em) {
-    this.em = em;
-  }
 
   @Override
   public Member save(Member member) {

@@ -37,4 +37,9 @@ public class MemoryItemRepository implements ItemRepository {
     });
     itemMap.put(id, item);
   }
+
+  @Override
+  public void delete(Long id) {
+    itemMap.remove(id);
+  }
 }

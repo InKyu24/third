@@ -1,8 +1,6 @@
 package com.example.third.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,6 +9,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table
+@NoArgsConstructor
 public class Item {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +25,4 @@ public class Item {
     this.price = price;
     this.quantity = quantity;
   }
-  public Item() {}
 }

@@ -1,6 +1,5 @@
 package com.example.third.repository;
 
-import com.example.third.entity.Item;
 import com.example.third.entity.Member;
 
 import java.util.*;

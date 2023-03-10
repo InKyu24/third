@@ -1,24 +1,25 @@
 package com.example.third.repository;
 
 import com.example.third.entity.Item;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 public class JpaItemRepository implements ItemRepository {
 
   private final EntityManager em;
 
-  @Autowired
-  public JpaItemRepository(EntityManager em) {
-    this.em = em;
-  }
-
   @Override
   public Item save(Item item) {
-    em.persist(item);
+    if(item.getId() == null) {
+      em.persist(item);
+    } else {
+      em.merge(item);
+    }
     return item;
   }
 
@@ -40,5 +41,10 @@ public class JpaItemRepository implements ItemRepository {
     oldItem.setPrice(item.getPrice());
     oldItem.setQuantity(item.getQuantity());
     em.merge(oldItem);
+  }
+
+  @Override
+  public void delete(Long id) {
+    em.remove(em.find(Item.class, id));
   }
 }
