@@ -7,8 +7,16 @@
 <body>
     <h1>홈 화면</h1>
 <div>
-    <button type="button" th:onclick="|location.href='@{/join}'|">회원가입</button>
-    <button type="button" th:onclick="|location.href='@{/login}'|">로그인</button>
+    <div th:if="${member == null}">
+        <button type="button" th:onclick="|location.href='@{/join}'|">회원가입</button>
+        <button type="button" th:onclick="|location.href='@{/login}'|">로그인</button>
+    </div>
+
+    <div th:unless="${member == null}">
+        <p th:text="${member.getName()}"></p>
+        <button type="button" th:onclick="|location.href='@{/logout}'|">로그아웃</button>
+    </div>
+
     <p th:text="${message}">
 </div>
 </body>
