@@ -6,14 +6,14 @@
 </head>
 <body>
 <h3>로그인</h3>
-<form action="/login" method="post" th:object="${member}">
+<form method="post" >
     <div>
         <label for="loginId">login ID</label>
-        <input type="text" id="loginId" th:field="*{loginId}" placeholder="아이디를 입력해주세요" />
+        <input type="text" id="loginId" name="loginId" placeholder="아이디를 입력해주세요" />
     </div>
     <div>
         <label for="password">비밀번호</label>
-        <input type="password" id="password" th:field="*{password}" placeholder="암호를 입력해주세요" />
+        <input type="password" id="password" name="password" placeholder="암호를 입력해주세요" />
     </div>
     <div>
         <button type="submit">로그인</button>

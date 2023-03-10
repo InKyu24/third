@@ -14,7 +14,10 @@
 
     <div th:unless="${member == null}">
         <p th:text="${member.getName()}"></p>
-        <button type="button" th:onclick="|location.href='@{/logout}'|">로그아웃</button>
+        <button type="button" th:onclick="|location.href='@{/items}'|">상품목록 조회</button>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">로그아웃</button>
+        </form>
     </div>
 
     <p th:text="${message}">

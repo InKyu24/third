@@ -63,8 +63,8 @@ public class ItemController {
     return "redirect:/items";
   }
 
-  @GetMapping("/delete/{id}")
-  public String DeleteItem(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+  @PostMapping("/delete")
+  public String DeleteItem(Long id, RedirectAttributes redirectAttributes) {
     itemService.deleteItem(id);
     redirectAttributes.addFlashAttribute("message", id+"번 상품 삭제 완료!");
     return "redirect:/items";

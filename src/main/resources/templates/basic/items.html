@@ -24,7 +24,12 @@
         <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.name}"></a></td>
         <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.price}"></a></td>
         <td><a th:href="@{/item/{id}(id=${item.id})}" th:text="${item.quantity}"></a></td>
-        <td><button th:onclick="|location.href='@{/delete/{id}(id=${item.id})}'|">삭제</button> </td>
+        <td>
+          <form th:action="@{/delete}" method="post">
+            <input type="hidden" name="id" th:value="${item.id}" />
+            <button type="submit">삭제</button>
+          </form>
+        </td>
       </tr>
     </tbody>
   </table>
