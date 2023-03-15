@@ -46,8 +46,10 @@ public class LoginController {
 
       HttpSession session = req.getSession(true);
       session.setAttribute(SessionConst.NAME, memberSession);
-
-      return "redirect:" +requestURI;
+      if (requestURI == null) {
+        requestURI = "/";
+      }
+      return "redirect:"+requestURI;
     }
     redirectAttributes.addFlashAttribute("message", "로그인 실패");
     return "redirect:/";
